@@ -55,7 +55,7 @@ var gather = {
   achMessage: `You've discovered Gather!`
 }
   function finder (position, place) {
-    if(place.lat - position.lat <= 0.0002 && place.lng - position.lng <= 0.0002){
+    if(place.lat - position.lat <= 0.0001 && place.lng - position.lng <= 0.0001){
     alert('YOU MADE IT!')
   }
 
