@@ -2,23 +2,24 @@ $(document).on('ready', function() {
   console.log('map ready!');
   })
   var map;
-  var infowindow;
-
+  var infoWindow;
+  var nearbyNode = []
   function initMap() {
     var myPos = {lat: 39.7336014, lng: -104.9923434}
 
     map = new google.maps.Map(document.getElementById('map'), {
       center: myPos,
-      zoom: 18
+      zoom: 18,
     });
 
-      var infoWindow = new google.maps.InfoWindow({map: map});
+    infoWindow = new google.maps.InfoWindow({map: map});
     var service = new google.maps.places.PlacesService(map);
     service.nearbySearch({
       location: myPos,
-      radius: 500,
-      type: ['store']
+      radius: 150,
+      type: ['point_of_interest']
     }, callback);
+
     if (navigator.geolocation) {
       getGeoLocation(infoWindow, map)();
       setInterval(getGeoLocation(infoWindow, map), 1000);
@@ -26,15 +27,15 @@ $(document).on('ready', function() {
       handleLocationError(false, infoWindow, map.getCenter());
     }
   }
-
   function callback(results, status) {
+    console.log('results', results);
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       for (var i = 0; i < results.length; i++) {
         createMarker(results[i]);
+        $('.nearby').append(`<li>${results[i].name}</li>`)
       }
     }
   }
-
   function createMarker(place) {
     var placeLoc = place.geometry.location;
     var marker = new google.maps.Marker({
@@ -43,8 +44,8 @@ $(document).on('ready', function() {
     });
 
     google.maps.event.addListener(marker, 'click', function() {
-      infowindow.setContent(place.name);
-      infowindow.open(map, this);
+      infoWindow.setContent(place.name);
+      infoWindow.open(map, this);
     });
   }
   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -69,11 +70,9 @@ $(document).on('ready', function() {
       });
     }
   }
-  function nearbyNodes (position, place) {
-    for (var i = 0; i < place.length; i++) {
-      if(averageDist(position, place[i]) < 0.0003){
-        $('.nearby').append(`<li>${place[i].name}</li>`)
-      }
+  function nearbyNodes (nearby) {
+    for (var i = 0; i < nearby.length; i++) {
+      $('.nearby').append(`<li>${place[i].name}</li>`)
     }
   }
   function averageDist (position, place) {
