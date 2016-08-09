@@ -28,7 +28,6 @@ $(document).on('ready', function() {
     }
   }
   function callback(results, status) {
-    console.log('results', results);
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       for (var i = 0; i < results.length; i++) {
         createMarker(results[i]);
@@ -82,7 +81,6 @@ $(document).on('ready', function() {
     return avgDist
   }
   function achUnlock (position, place) {
-    console.log(averageDist(position, place));
     if(averageDist(position, place) < 0.0002 && place.found === false){
       achModal(place)
       place.found = true
