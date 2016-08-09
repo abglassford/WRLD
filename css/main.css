@@ -1,9 +1,19 @@
-/* add custom styles */
 html, body {
-  height: 100%;
-  margin: 0;
+   height: 100%;
+   margin: 0;
   padding: 0;
-}
+ }
 #map {
   height: 100%;
+  width: auto;
+}
+.map-container {
+  height: 600px;
+  width: 100%;
+}
+.top-buffer {
+  margin-top: 20px;
+}
+li {
+  list-style: none;
 }
