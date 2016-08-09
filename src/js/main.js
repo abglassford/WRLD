@@ -1,5 +1,11 @@
 $(document).on('ready', function() {
   console.log('map ready!');
+  $.ajax({
+    method: 'GET',
+    url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?parameters'
+  }).done(function(data){
+    console.log(data);
+  })
   })
   function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -9,7 +15,7 @@ $(document).on('ready', function() {
     var infoWindow = new google.maps.InfoWindow({map: map});
     if (navigator.geolocation) {
       getGeoLocation(infoWindow, map)();
-      setInterval(getGeoLocation(infoWindow, map), 5000);
+      setInterval(getGeoLocation(infoWindow, map), 1000);
     } else {
       handleLocationError(false, infoWindow, map.getCenter());
     }
@@ -30,7 +36,7 @@ $(document).on('ready', function() {
         infoWindow.setPosition(pos);
         infoWindow.setContent('You Location');
         map.setCenter(pos);
-        achUnlock(pos, local[4])
+        achUnlock(pos, local[0])
       }, function() {
         handleLocationError(true, infoWindow, map.getCenter());
       });
@@ -43,7 +49,6 @@ $(document).on('ready', function() {
       }
     }
   }
-
   function averageDist (position, place) {
     var avgLatDist = Math.abs(position.lat - place.lat)
     var avgLngDist = Math.abs(position.lng - place.lng)

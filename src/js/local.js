@@ -14,7 +14,7 @@ var local = [{
     lat: 39.733606,
     lng: -104.991972,
     found: false,
-    achievement: `Golden Brew`
+    achievement: `Grab Some Coffee`
   },
   {
     name: 'The Station Hair Studio',
