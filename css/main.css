@@ -22,5 +22,6 @@ li {
 }
 .modal-content {
   font-size: 30px;
-  background-color: rgba(167, 215, 250, 1)
+  background-color: rgba(167, 215, 250, 1);
+  padding: 20px
 }
