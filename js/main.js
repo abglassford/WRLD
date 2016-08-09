@@ -1,24 +1,51 @@
 $(document).on('ready', function() {
   console.log('map ready!');
-  $.ajax({
-    method: 'GET',
-    url: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?parameters'
-  }).done(function(data){
-    console.log(data);
   })
-  })
+  var map;
+  var infowindow;
+
   function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 39.7336014, lng: -104.9923434},
+    var myPos = {lat: 39.7336014, lng: -104.9923434}
+
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: myPos,
       zoom: 18
     });
-    var infoWindow = new google.maps.InfoWindow({map: map});
+
+      var infoWindow = new google.maps.InfoWindow({map: map});
+    var service = new google.maps.places.PlacesService(map);
+    service.nearbySearch({
+      location: myPos,
+      radius: 500,
+      type: ['store']
+    }, callback);
     if (navigator.geolocation) {
       getGeoLocation(infoWindow, map)();
       setInterval(getGeoLocation(infoWindow, map), 1000);
     } else {
       handleLocationError(false, infoWindow, map.getCenter());
     }
+  }
+
+  function callback(results, status) {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+      for (var i = 0; i < results.length; i++) {
+        createMarker(results[i]);
+      }
+    }
+  }
+
+  function createMarker(place) {
+    var placeLoc = place.geometry.location;
+    var marker = new google.maps.Marker({
+      map: map,
+      position: place.geometry.location
+    });
+
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.setContent(place.name);
+      infowindow.open(map, this);
+    });
   }
   function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
