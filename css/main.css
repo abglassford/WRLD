@@ -17,3 +17,10 @@ html, body {
 li {
   list-style: none;
 }
+.alert-text {
+  visibility: hidden;
+}
+.modal-content {
+  font-size: 30px;
+  background-color: rgba(167, 215, 250, 1)
+}

@@ -7,32 +7,35 @@ var local = [{
     lat: 39.733675,
     lng: -104.992669,
     found: false,
-    achievement: 'locked',
-    achMessage: `Level up at Galvanize!`
+    achievement: `Level up!`
   },
   {
-    name: 'Metropolist',
+    name: 'Metropolis',
     lat: 39.733606,
     lng: -104.991972,
     found: false,
-    achievement: 'locked',
-    achMessage:`Grab some coffee at Metropolis!`
+    achievement: `Golden Brew`
   },
   {
-    name: 'The Station HAir Studio',
+    name: 'The Station Hair Studio',
     lat: 39.734148,
     lng: -104.992739,
     found: false,
-    achievement: `locked`,
-    achMessage: `New Location Found!`
+    achievement: `Got mah hair did!`
   },
   {
     name: 'Skin In the City',
     lat: 39.734025,
     lng: -104.992747,
     found: false,
-    achievement: `locked`,
-    achMessage: `New Location Found!`
+    achievement: `Hannibal's Hangout`
+  },
+  {
+    name: 'Camellia House',
+    lat: 39.736123,
+    lng:  -104.984192,
+    found: false,
+    achievement: `Welcome Home!`
   }
 ]
 
