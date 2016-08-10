@@ -11,25 +11,34 @@ function initMap() {
   });
   infoWindow = new google.maps.InfoWindow({map: map});
   if (navigator.geolocation) {
-    getGeoLocation(infoWindow, map);
+    getGeoLocation(infoWindow, map)();
     setInterval(getGeoLocation(infoWindow, map), 1000);
   } else {
     handleLocationError(false, infoWindow, map.getCenter());
   }
 }
 function getGeoLocation (infoWindow, map) {
-  navigator.geolocation.getCurrentPosition(function(position) {
-    var pos = {
-      lat: position.coords.latitude,
-      lng: position.coords.longitude
-    };
-    getNearbyNodes(pos, addPlaces);
-    infoWindow.setPosition(pos);
-    infoWindow.setContent('Your Location');
-    map.setCenter(pos);
-  }, function() {
-    handleLocationError(true, infoWindow, map.getCenter());
-  });
+  return function () {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      var tempPos = {
+        lat: latSimulation,
+        lng: lngSimulation
+      }
+      getNearbyNodes(tempPos, addPlaces);
+      achivementFn(achievements)
+      infoWindow.setPosition(tempPos);
+      infoWindow.setContent('Your Location');
+      map.setCenter(tempPos);
+    }, function() {
+      handleLocationError(true, infoWindow, map.getCenter());
+    });
+    latSimulation += .0000001
+    lngSimulation += .00008
+  }
 }
 function getNearbyNodes (position, callback) {
   var service = new google.maps.places.PlacesService(map);
@@ -39,38 +48,39 @@ function getNearbyNodes (position, callback) {
   }, callback(position));
 }
 function makePlaceObjArr (place) {
-  var newObjArr = []
+  var tempArr = []
   for (var i = 0; i < place.length; i++) {
-    newObjArr.push(
+    tempArr.push(
       {
       name: place[i].name,
       lat: place[i].geometry.location.lat(),
       lng: place[i].geometry.location.lng(),
+      types: place[i].types
     })
   }
-  return newObjArr;
+  return tempArr;
 }
-function achUnlock (position, place) {
+function discover (position, place) {
   for (var i = 0; i < place.length; i++) {
-    if((averageDist(position, place[i]) < 0.0001) && (!foundPlaces.includes(place[i].name))) {
-      achModal(place[i])
+    if((averageDist(position, place[i]) < 0.00006) && (!foundPlaces.includes(place[i].name))) {
+      discModal(place[i])
       foundPlaces.push(place[i].name)
-      appendAchievement(place[i])
+      appendDiscovered(place[i])
     }
   }
 }
 function addPlaces (position) {
   return function (results, status) {
-    $('.nearby').html('')
+    $('.undiscovered').html('')
     var locations = makePlaceObjArr(results)
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       for (let i = 0; i < results.length; i++) {
         createMarker(results[i]);
       }
-      achUnlock(position, locations);
+      discover(position, locations);
       for (let i= 0; i < locations.length; i++){
         if (!foundPlaces.includes(locations[i].name)) {
-          $('.nearby').append(`<li>${locations[i].name}</li>`)
+          $('.undiscovered').append(`<li>${locations[i].name}</li>`)
         }
       }
     }

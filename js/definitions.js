@@ -1,6 +1,11 @@
 var map//DON'T DELETE
 var infoWindow; //DON'T DELETE
 var foundPlaces = []
+var achLibrary = []
+var typesLibrary = []
+var latSimulation = 39.7336014
+var lngSimulation = -104.9923434
+
 
 function createMarker(place) {
   var marker = new google.maps.Marker({
@@ -24,13 +29,13 @@ function averageDist (position, place) {
   var avgDist = (avgLatDist + avgLngDist) / 2
   return avgDist
 }
-function achModal (place) {
+function discModal (place) {
   $('.modal-content').text(`You've discovered ${place.name}`)
   $('.modal').modal('show')
   setTimeout(function () {
     $('.modal').modal('hide');
   }, 3000)
 }
-function appendAchievement (place) {
-  $('.achievements').append(`<li>${place.name}</li>`)
+function appendDiscovered (place) {
+  $('.discovered').append(`<li>${place.name}</li>`)
 }
