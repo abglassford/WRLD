@@ -62,9 +62,9 @@ function makePlaceObjArr (place) {
 }
 function discover (position, place) {
   for (var i = 0; i < place.length; i++) {
-    if((averageDist(position, place[i]) < 0.00006) && (!foundPlaces.includes(place[i].name))) {
+    if((averageDist(position, place[i]) < 0.00006) && (!discoveredPlaces.includes(place[i].name))) {
       discModal(place[i])
-      foundPlaces.push(place[i].name)
+      discoveredPlaces.push(place[i].name)
       appendDiscovered(place[i])
     }
   }
@@ -72,15 +72,15 @@ function discover (position, place) {
 function addPlaces (position) {
   return function (results, status) {
     $('.undiscovered').html('')
-    var locations = makePlaceObjArr(results)
+    var allPlaces = makePlaceObjArr(results)
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       for (let i = 0; i < results.length; i++) {
         createMarker(results[i]);
       }
-      discover(position, locations);
-      for (let i= 0; i < locations.length; i++){
-        if (!foundPlaces.includes(locations[i].name)) {
-          $('.undiscovered').append(`<li>${locations[i].name}</li>`)
+      discover(position, allPlaces);
+      for (let i= 0; i < allPlaces.length; i++){
+        if (!discoveredPlaces.includes(allPlaces[i].name)) {
+          $('.undiscovered').append(`<li>${allPlaces[i].name}</li>`)
         }
       }
     }
