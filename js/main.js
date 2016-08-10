@@ -36,8 +36,8 @@ function getGeoLocation (infoWindow, map) {
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
     });
-    latSimulation += .0000001
-    lngSimulation += .00008
+    latSimulation += .000001
+    lngSimulation += .0001
   }
 }
 function getNearbyNodes (position, callback) {
@@ -48,6 +48,9 @@ function getNearbyNodes (position, callback) {
   }, callback(position));
 }
 function makePlaceObjArr (place) {
+  if(!place){
+    return []
+  }
   var tempArr = []
   for (var i = 0; i < place.length; i++) {
     tempArr.push(
