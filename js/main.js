@@ -1,7 +1,6 @@
 $(document).on('ready', function() {
   console.log('main ready!');
 })
-
 function initMap() {
   var myPos = {lat: 39.7336014, lng: -104.9923434}
   map = new google.maps.Map(document.getElementById('map'), {
@@ -10,19 +9,18 @@ function initMap() {
     styles: [
             {
               stylers: [
-                { hue: '#eaffe6' },
-                { saturation: -20 }
+                { hue: '#F6E2A3' },
               ]
             },{
               featureType: 'all',
               stylers: [
-                { saturation: -80 }
+                { saturation: -60 }
               ]
             },{
               featureType: 'road.arterial',
               elementType: 'geometry',
               stylers: [
-                { hue: '#655747' },
+                { hue: '#F6E2A3' },
                 { saturation: 20 },
                 { lightness: -70 },
                 { visibility: 'simplified' }
