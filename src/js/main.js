@@ -11,7 +11,7 @@ function initMap() {
   });
   infoWindow = new google.maps.InfoWindow({map: map});
   if (navigator.geolocation) {
-    getGeoLocation(infoWindow, map)();
+    getGeoLocation(infoWindow, map);
     setInterval(getGeoLocation(infoWindow, map), 1000);
   } else {
     handleLocationError(false, infoWindow, map.getCenter());
@@ -48,7 +48,6 @@ function makePlaceObjArr (place) {
       lng: place[i].geometry.location.lng(),
     })
   }
-
   return newObjArr;
 }
 function achUnlock (position, place) {
@@ -68,9 +67,7 @@ function addPlaces (position) {
       for (let i = 0; i < results.length; i++) {
         createMarker(results[i]);
       }
-
       achUnlock(position, locations);
-
       for (let i= 0; i < locations.length; i++){
         if (!foundPlaces.includes(locations[i].name)) {
           $('.nearby').append(`<li>${locations[i].name}</li>`)
