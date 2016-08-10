@@ -1,6 +1,7 @@
 $(document).on('ready', function() {
   console.log('main ready!');
 })
+//this all looks great. good work -JH
 function initMap() {
   var myPos = {lat: 39.7336014, lng: -104.9923434}
   map = new google.maps.Map(document.getElementById('map'), {
@@ -55,7 +56,7 @@ function getGeoLocation (infoWindow, map) {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-      getNearbyNodes(pos)
+      getNearbyNodes(pos, callback)
       achUnlock(pos, newObjArr)
       infoWindow.setPosition(pos);
       infoWindow.setContent('Your Location');
@@ -65,12 +66,14 @@ function getGeoLocation (infoWindow, map) {
     });
   }
 }
-function getNearbyNodes (position) {
-  var service = new google.maps.places.PlacesService(map);
-  service.nearbySearch({
-    location: position,
-    radius: 100
-  }, callback);
+function getNearbyNodes (position, callbackFn) {
+  return new Promise(function(resolve, reject) {
+    var service = new google.maps.places.PlacesService(map);
+    service.nearbySearch({
+      location: position,
+      radius: 100
+    }, callbackFn);
+  })
 }
 function makePlaceObjArr (place) {
   newObjArr = []
