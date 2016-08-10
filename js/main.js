@@ -7,39 +7,7 @@ function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: myPos,
     zoom: 18,
-    styles: [
-            {
-              stylers: [
-                { hue: '#F6E2A3' },
-              ]
-            },{
-              featureType: 'all',
-              stylers: [
-                { saturation: -60 }
-              ]
-            },{
-              featureType: 'road.arterial',
-              elementType: 'geometry',
-              stylers: [
-                { hue: '#F6E2A3' },
-                { saturation: 20 },
-                { lightness: -70 },
-                { visibility: 'simplified' }
-              ]
-            },{
-              featureType: 'road',
-              elementType: 'labels',
-              stylers: [
-                { visibility: 'off' }
-              ]
-            },{
-              featureType: 'poi',
-              elementType: 'labels',
-              stylers: [
-                { visibility: 'off' }
-              ]
-            }
-          ]
+    styles: mapStyle
   });
   infoWindow = new google.maps.InfoWindow({map: map});
   if (navigator.geolocation) {
@@ -50,33 +18,28 @@ function initMap() {
   }
 }
 function getGeoLocation (infoWindow, map) {
-  return function () {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
-      getNearbyNodes(pos)
-      achUnlock(pos, newObjArr)
-      infoWindow.setPosition(pos);
-      infoWindow.setContent('Your Location');
-      map.setCenter(pos);
-    }, function() {
-      handleLocationError(true, infoWindow, map.getCenter());
-    });
-  }
+  navigator.geolocation.getCurrentPosition(function(position) {
+    var pos = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    };
+    getNearbyNodes(pos, addPlaces);
+    infoWindow.setPosition(pos);
+    infoWindow.setContent('Your Location');
+    map.setCenter(pos);
+  }, function() {
+    handleLocationError(true, infoWindow, map.getCenter());
+  });
 }
-function getNearbyNodes (position) {
-  return new Promise(function(resolve, reject) {
-    var service = new google.maps.places.PlacesService(map);
-    service.nearbySearch({
-      location: position,
-      radius: 100
-    }, callback);
-  })
+function getNearbyNodes (position, callback) {
+  var service = new google.maps.places.PlacesService(map);
+  service.nearbySearch({
+    location: position,
+    radius: 100
+  }, callback(position));
 }
 function makePlaceObjArr (place) {
-  newObjArr = []
+  var newObjArr = []
   for (var i = 0; i < place.length; i++) {
     newObjArr.push(
       {
@@ -85,6 +48,8 @@ function makePlaceObjArr (place) {
       lng: place[i].geometry.location.lng(),
     })
   }
+
+  return newObjArr;
 }
 function achUnlock (position, place) {
   for (var i = 0; i < place.length; i++) {
@@ -95,16 +60,21 @@ function achUnlock (position, place) {
     }
   }
 }
-function callback(results, status) {
-  $('.nearby').html('')
-  makePlaceObjArr(results)
-  if (status === google.maps.places.PlacesServiceStatus.OK) {
-    for (let i = 0; i < results.length; i++) {
-      createMarker(results[i]);
-    }
-    for (let i= 0; i < newObjArr.length; i++){
-      if (!foundPlaces.includes(newObjArr[i].name)) {
-        $('.nearby').append(`<li>${newObjArr[i].name}</li>`)
+function addPlaces (position) {
+  return function (results, status) {
+    $('.nearby').html('')
+    var locations = makePlaceObjArr(results)
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+      for (let i = 0; i < results.length; i++) {
+        createMarker(results[i]);
+      }
+
+      achUnlock(position, locations);
+
+      for (let i= 0; i < locations.length; i++){
+        if (!foundPlaces.includes(locations[i].name)) {
+          $('.nearby').append(`<li>${locations[i].name}</li>`)
+        }
       }
     }
   }

@@ -1,6 +1,5 @@
 var map//DON'T DELETE
 var infoWindow; //DON'T DELETE
-var newObjArr = []
 var foundPlaces = []
 
 function createMarker(place) {
