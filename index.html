@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="utf-8">
+    <title>wrld</title>
+    <link href='https://fonts.googleapis.com/css?family=Calligraffitti' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="src/css/main.css">
+  </head>
+  <body>
+    <div class="modal fade bs-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content text-center">
+        </div>
+      </div>
+    </div>
+    <div class="container map-background col-md-10 col-md-offset-1 col-xs-12">
+      <div class="row">
+        <header>
+          <div class="heading col-md-12 text-center col-xs-12">
+            <h1 class="title">wrld</h1>
+          </div>
+        </header>
+      </div>
+      <div class="top-buffer text-center map-container">
+        <div id="map"></div>
+      </div>
+      <div class="row">
+        <div class="top-buffer text-center col-md-6 col-xs-6">
+          <h4>Undiscovered</h4>
+          <ul class="nearby"></ul>
+        </div>
+        <div class="text-center top-buffer col-md-6 col-xs-6">
+          <h4>Discovered</h4>
+          <ul class="achievements"></ul>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="src/CDN/jquery-2.2.4.min.js"></script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDdKtL-Vj_wI2IHLl8NE_IUYWu8QdFTHvI&callback=initMap&libraries=places">
+    </script>
+    <script type="text/javascript" src="src/CDN/bootstrap.min.js"></script>
+    <script type="text/javascript" src="src/js/definitions.js"></script>
+    <script type="text/javascript" src="src/js/main.js"></script>
+  </body>
+</html>
