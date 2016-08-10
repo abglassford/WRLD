@@ -1,0 +1,36 @@
+html, body {
+   height: 100%;
+   margin: 0;
+  padding: 0;
+ }
+#map {
+  height: 100%;
+  width: auto;
+}
+.map-container {
+  height: 500px;
+  width: 100%;
+}
+.top-buffer {
+  margin-top: 20px;
+}
+li {
+  list-style: none;
+}
+ul{
+  padding-left: 0;
+}
+.alert-text {
+  visibility: hidden;
+}
+.modal-content {
+  font-size: 30px;
+  background-color: rgba(167, 215, 250, 1);
+  padding: 20px
+}
+body {
+  background-image: url('../img/papyrus.jpg');
+}
+.title {
+  font-family: 'Calligraffitti', cursive;
+}
