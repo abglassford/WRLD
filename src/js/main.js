@@ -3,48 +3,22 @@ $(document).on('ready', function() {
   })
 var map;
 var infoWindow;
-var placeObjArr = []
-//initialize map
+var resultsArr = []
+var newObjArr = []
+var foundPlaces = []
+
 function initMap() {
-  //myPos is hardcoded starting postition
   var myPos = {lat: 39.7336014, lng: -104.9923434}
   map = new google.maps.Map(document.getElementById('map'), {
     center: myPos,
     zoom: 18,
   });
   infoWindow = new google.maps.InfoWindow({map: map});
-  //if browser supports geolocation
   if (navigator.geolocation) {
-    //call getGeoLocation
     getGeoLocation(infoWindow, map)();
-    //call getGeoLocation every 5 seconds to update location
     setInterval(getGeoLocation(infoWindow, map), 5000);
   } else {
     handleLocationError(false, infoWindow, map.getCenter());
-  }
-}
-
-
-
-
-function getGeoLocation (infoWindow, map) {
-  //return internal function
-  return function () {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      //pos is my current position
-      var pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
-      getNearbyNodes(pos)
-      //set position of the map to my posittion
-      infoWindow.setPosition(pos);
-      infoWindow.setContent('Your Location');
-      //set center of map to my position
-      map.setCenter(pos);
-    }, function() {
-      handleLocationError(true, infoWindow, map.getCenter());
-    });
   }
 }
 
@@ -58,14 +32,38 @@ function getNearbyNodes (position) {
 }
 
 
+
+function getGeoLocation (infoWindow, map) {
+  return function () {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+      getNearbyNodes(pos)
+      makePlaceObjArr(resultsArr)
+      achUnlock(pos, newObjArr)
+      infoWindow.setPosition(pos);
+      infoWindow.setContent('Your Location');
+      map.setCenter(pos);
+    }, function() {
+      handleLocationError(true, infoWindow, map.getCenter());
+    });
+  }
+}
+
+
+
 function callback(results, status) {
   $('.nearby').html('')
-  placeObjArr = results
+  resultsArr = results
   if (status === google.maps.places.PlacesServiceStatus.OK) {
 
     for (let i = 0; i < results.length; i++) {
       createMarker(results[i]);
-      $('.nearby').append(`<li>${results[i].name}</li>`)
+    }
+    for (let i= 0; i < newObjArr.length; i++){
+      $('.nearby').append(`<li>${newObjArr[i].name}</li>`)
     }
   }
 }
@@ -96,8 +94,8 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 
 function averageDist (position, place) {
-  var avgLatDist = Math.abs(position.lat - place.geometry.location.lat())
-  var avgLngDist = Math.abs(position.lng - place.geometry.location.lng())
+  var avgLatDist = Math.abs(position.lat - place.lat)
+  var avgLngDist = Math.abs(position.lng - place.lng)
   var avgDist = (avgLatDist + avgLngDist) / 2
   return avgDist
 }
@@ -106,12 +104,12 @@ function averageDist (position, place) {
 
 function achUnlock (position, place) {
   for (var i = 0; i < place.length; i++) {
-    if(averageDist(position, place[i]) < 0.0002 && place.found === false){
-      achModal(place[i])
-      place.found = true
-      appendAchievement(place)
-    }
+    if((averageDist(position, place[i]) < 0.1) && ((foundPlaces.forEach(function (value) {return value === place[i]}) === false))){
+        achModal(place[i])
+        foundPlaces.push(place[i])
+        appendAchievement(place)
   }
+}
 }
 
 
@@ -127,17 +125,20 @@ function achModal (place) {
 
 
 function appendAchievement (place) {
-  $('.achievements').append(`<li>${place.achievement}</li>`)
+  $('.achievements').append(`<li>${place.name}</li>`)
 }
 
 
 
 function makePlaceObjArr (place) {
-    placeObjArr.push(
+  newObjArr = []
+  for (var i = 0; i < place.length; i++) {
+    newObjArr.push(
       {
-      name: place.name,
-      lat: place.geometry.location.lat(),
-      lng: place.geometry.location.lng(),
+      name: place[i].name,
+      lat: place[i].geometry.location.lat(),
+      lng: place[i].geometry.location.lng(),
       found: false
     })
+  }
 }
