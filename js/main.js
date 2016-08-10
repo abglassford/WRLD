@@ -84,7 +84,6 @@ function addPlaces (position) {
       for (let i= 0; i < allPlaces.length; i++){
         if (!discoveredPlaces.includes(allPlaces[i].name)) {
           $('.undiscovered').append(`<li>${allPlaces[i].name}</li>`)
-          //taco
         }
       }
     }
