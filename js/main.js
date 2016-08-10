@@ -44,7 +44,7 @@ function initMap() {
   infoWindow = new google.maps.InfoWindow({map: map});
   if (navigator.geolocation) {
     getGeoLocation(infoWindow, map)();
-    setInterval(getGeoLocation(infoWindow, map), 2000);
+    setInterval(getGeoLocation(infoWindow, map), 1000);
   } else {
     handleLocationError(false, infoWindow, map.getCenter());
   }
@@ -56,7 +56,7 @@ function getGeoLocation (infoWindow, map) {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-      getNearbyNodes(pos, callback)
+      getNearbyNodes(pos)
       achUnlock(pos, newObjArr)
       infoWindow.setPosition(pos);
       infoWindow.setContent('Your Location');
@@ -66,14 +66,14 @@ function getGeoLocation (infoWindow, map) {
     });
   }
 }
-function getNearbyNodes (position, callbackFn) {
+function getNearbyNodes (position) {
   return new Promise(function(resolve, reject) {
     var service = new google.maps.places.PlacesService(map);
     service.nearbySearch({
       location: position,
       radius: 100
-    }, callbackFn);
-  }).then(callbackFn)
+    }, callback);
+  })
 }
 function makePlaceObjArr (place) {
   newObjArr = []
