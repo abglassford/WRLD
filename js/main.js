@@ -63,7 +63,10 @@ function callback(results, status) {
       createMarker(results[i]);
     }
     for (let i= 0; i < newObjArr.length; i++){
-      $('.nearby').append(`<li>${newObjArr[i].name}</li>`)
+      if (!foundPlaces.includes(newObjArr[i].name)) {
+        $('.nearby').append(`<li>${newObjArr[i].name}</li>`)
+      }
+
     }
   }
 }
@@ -94,8 +97,10 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 
 function averageDist (position, place) {
-  var avgLatDist = Math.abs(position.lat - place.lat)
+  var avgLatDist = Math.abs(place.lat - position.lat)
+  console.log(avgLatDist);
   var avgLngDist = Math.abs(position.lng - place.lng)
+  console.log(avgLngDist);
   var avgDist = (avgLatDist + avgLngDist) / 2
   return avgDist
 }
@@ -103,15 +108,16 @@ function averageDist (position, place) {
 
 
 function achUnlock (position, place) {
+
   for (var i = 0; i < place.length; i++) {
-    if((averageDist(position, place[i]) < 0.1) && ((foundPlaces.forEach(function (value) {return value === place[i]}) === false))){
-        achModal(place[i])
-        foundPlaces.push(place[i])
-        appendAchievement(place)
+    console.log(place[i].name, averageDist(position, place[i]));
+    if((averageDist(position, place[i]) < 0.000001) && (!foundPlaces.includes(place[i].name))) {
+      achModal(place[i])
+      foundPlaces.push(place[i].name)
+      appendAchievement(place[i])
+    }
   }
 }
-}
-
 
 
 function achModal (place) {
@@ -121,7 +127,6 @@ function achModal (place) {
     $('.modal').modal('hide');
   }, 3000)
 }
-
 
 
 function appendAchievement (place) {
@@ -138,7 +143,6 @@ function makePlaceObjArr (place) {
       name: place[i].name,
       lat: place[i].geometry.location.lat(),
       lng: place[i].geometry.location.lng(),
-      found: false
     })
   }
 }
