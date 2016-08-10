@@ -1,5 +1,5 @@
 $(document).on('ready', function() {
-  console.log('map ready!');
+  console.log('main ready!');
   })
 var map;
 var infoWindow;
@@ -98,9 +98,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 function averageDist (position, place) {
   var avgLatDist = Math.abs(place.lat - position.lat)
-  console.log(avgLatDist);
   var avgLngDist = Math.abs(position.lng - place.lng)
-  console.log(avgLngDist);
   var avgDist = (avgLatDist + avgLngDist) / 2
   return avgDist
 }
@@ -110,7 +108,6 @@ function averageDist (position, place) {
 function achUnlock (position, place) {
 
   for (var i = 0; i < place.length; i++) {
-    console.log(place[i].name, averageDist(position, place[i]));
     if((averageDist(position, place[i]) < 0.000001) && (!foundPlaces.includes(place[i].name))) {
       achModal(place[i])
       foundPlaces.push(place[i].name)
