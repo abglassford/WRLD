@@ -19,7 +19,7 @@ function achModal(achievement) {
 
 var achievements = [
   {
-    requirement: function () {return foundPlaces.length >= 20},
+    requirement: function () {return discoveredPlaces.length >= 20},
     name: 'Baby Steps',
     description: 'discover 20 places',
     note: 'How do you eat an elephant? Why would you WANT to eat an elephant...?',

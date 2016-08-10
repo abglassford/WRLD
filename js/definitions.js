@@ -1,6 +1,6 @@
 var map//DON'T DELETE
 var infoWindow; //DON'T DELETE
-var foundPlaces = []
+var discoveredPlaces = []
 var achLibrary = []
 var typesLibrary = []
 var latSimulation = 39.7336014
