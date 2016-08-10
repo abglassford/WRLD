@@ -1,6 +1,7 @@
 $(document).on('ready', function() {
   console.log('main ready!');
 })
+//this all looks great. good work -JH
 function initMap() {
   var myPos = {lat: 39.7336014, lng: -104.9923434}
   map = new google.maps.Map(document.getElementById('map'), {
