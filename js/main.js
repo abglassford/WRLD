@@ -73,7 +73,7 @@ function getNearbyNodes (position, callbackFn) {
       location: position,
       radius: 100
     }, callbackFn);
-  })
+  }).then(callbackFn)
 }
 function makePlaceObjArr (place) {
   newObjArr = []
