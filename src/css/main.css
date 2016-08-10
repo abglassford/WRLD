@@ -17,6 +17,9 @@ html, body {
 li {
   list-style: none;
 }
+ul{
+  padding-left: 0;
+}
 .alert-text {
   visibility: hidden;
 }
