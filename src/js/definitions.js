@@ -1,4 +1,4 @@
-var map; //DON'T DELETE
+var map//DON'T DELETE
 var infoWindow; //DON'T DELETE
 var newObjArr = []
 var foundPlaces = []
