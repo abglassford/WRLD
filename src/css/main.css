@@ -28,3 +28,9 @@ ul{
   background-color: rgba(167, 215, 250, 1);
   padding: 20px
 }
+body {
+  background-image: url('../img/papyrus.jpg');
+}
+.title {
+  font-family: 'Calligraffitti', cursive;
+}
