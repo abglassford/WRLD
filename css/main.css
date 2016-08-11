@@ -4,9 +4,7 @@ html, body {
    padding: 0;
    color: white;
    font-family: 'Open Sans', sans-serif;
- }
- body {
-      background-color: #1d1f25;
+   background-image: url('../img/valley.jpg')
  }
 #map {
   height: 100%;
@@ -73,9 +71,11 @@ ul {
   font-size: 20px;
 }
 .lists {
-    background-color: rgba(66, 73, 78, 0.86);
+    background-color: rgba(29, 31, 37, 0.86);
+    border-top: solid 5px white;
     padding-bottom: 40px;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     margin-bottom: 40px;
+
 }
