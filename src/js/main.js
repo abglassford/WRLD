@@ -3,10 +3,10 @@ $(document).on('ready', function() {
 })
 
 function initMap() {
-  var myPos = {lat: 39.7325758, lng: -104.9914602}
+  var myPos = {lat: 39.7334884, lng: -104.9939278}
   map = new google.maps.Map(document.getElementById('map'), {
     center: myPos,
-    zoom: 18,
+    zoom: 17,
     styles: mapStyle
   });
   infoWindow = new google.maps.InfoWindow({map: map});
@@ -20,7 +20,7 @@ function initMap() {
   });
   if (navigator.geolocation) {
     getGeoLocation(myMarker, map)();
-    setInterval(getGeoLocation(myMarker, map), 2000);
+    setInterval(getGeoLocation(myMarker, map), 1000);
   } else {
     handleLocationError(false, myMarker, map.getCenter());
   }
