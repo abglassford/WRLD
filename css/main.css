@@ -55,7 +55,7 @@ li {
   font-family: 'Calligraffitti', cursive;
 }
 .modal-content {
-  background-color: #1d1f25;
+  background-color: rgba(29, 31, 37, 0.86);
   border: solid 1px white;
 }
 .icon {
