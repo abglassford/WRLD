@@ -15,8 +15,6 @@ function achModal(achievement) {
     $('.modal').modal('hide');
   }, 3000)
 }
-
-
 var achievements = [
   {
     requirement: function () {return discoveredPlaces.length >= 5},

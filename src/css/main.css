@@ -4,10 +4,13 @@ html, body {
    padding: 0;
    color: white;
    font-family: 'Open Sans', sans-serif;
-   background-image: url('../img/valley.jpg')
+   background-image: url('../img/valley.jpg');
+   background-repeat: no-repeat;
+    background-attachment: fixed;
  }
  .heading {
    color: rgba(29, 31, 37, 1);
+   padding: 0
  }
 #map {
   height: 100%;
@@ -55,7 +58,12 @@ li {
   padding-right: 0px;
 }
 .title {
+  margin: 120px 0px 120px 0px;
   font-family: 'Calligraffitti', cursive;
+  color: white;
+  font-size: 400px;
+  padding-top: 50px;
+  background-color: rgba(29, 31, 37, 0.76)
 }
 .modal-content {
   background-color: rgba(29, 31, 37, 0.86);

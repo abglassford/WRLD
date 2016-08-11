@@ -3,7 +3,7 @@ $(document).on('ready', function() {
 })
 
 function initMap() {
-  var myPos = {lat: 39.7334884, lng: -104.9939278}
+  let myPos = {lat: 39.7334884, lng: -104.9939278}
   map = new google.maps.Map(document.getElementById('map'), {
     center: myPos,
     zoom: 17,
@@ -25,6 +25,7 @@ function initMap() {
     handleLocationError(false, myMarker, map.getCenter());
   }
 }
+
 function getGeoLocation (myMarker, map) {
   return function () {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -47,6 +48,7 @@ function getGeoLocation (myMarker, map) {
     lngSimulation += .0001
   }
 }
+
 function getNearbyNodes (position, callback) {
   var service = new google.maps.places.PlacesService(map);
   service.nearbySearch({
@@ -80,6 +82,7 @@ function discover (position, place) {
     }
   }
 }
+
 function addPlaces (position) {
   return function (results, status) {
     $('.undiscovered').html('')
@@ -97,3 +100,6 @@ function addPlaces (position) {
     }
   }
 }
+// function removeMarker (position) {
+//
+// }
