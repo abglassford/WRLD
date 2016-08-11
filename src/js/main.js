@@ -66,7 +66,7 @@ function makePlaceObjArr (place) {
       name: place[i].name,
       lat: place[i].geometry.location.lat(),
       lng: place[i].geometry.location.lng(),
-      types: place[i].types
+      types: place[i].types[0]
     })
   }
   return tempArr;
@@ -83,7 +83,7 @@ function discover (position, place) {
 function addPlaces (position) {
   return function (results, status) {
     $('.undiscovered').html('')
-    var allPlaces = makePlaceObjArr(results)
+    allPlaces = makePlaceObjArr(results)
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       for (let i = 0; i < results.length; i++) {
         createMarker(results[i]);
@@ -91,7 +91,7 @@ function addPlaces (position) {
       discover(position, allPlaces);
       for (let i= 0; i < allPlaces.length; i++){
         if (!discoveredPlaces.includes(allPlaces[i].name)) {
-          $('.undiscovered').append(`<li>${allPlaces[i].name}</li>`)
+          $('.undiscovered').append(`<li class='undiscList col-md-12 col-xs-12'><img class='icon'  src='./iconpack/icons/${allPlaces[i].types}.svg'>${allPlaces[i].name}</li>`)
         }
       }
     }
