@@ -75,7 +75,7 @@ function makePlaceObjArr (place) {
 }
 function discover (position, place) {
   for (var i = 0; i < place.length; i++) {
-    if((averageDist(position, place[i]) < 0.00009) && (!discoveredPlaces.includes(place[i].name))) {
+    if((averageDist(position, place[i]) < 0.0001) && (!discoveredPlaces.includes(place[i].name))) {
       discModal(place[i])
       addTypes(place[i].types)
       discoveredPlaces.push(place[i].name)
