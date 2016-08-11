@@ -6,21 +6,21 @@ var mapStyle = [
         },{
           featureType: 'landscape',
           stylers: [
-            { color: '#70573F' },
-            { saturation: -20 },
-            { lightness: 60 }
+            { color: '#F6E2A3' },
+            { saturation: -60 },
+            { lightness: -10 }
           ]
         },{
           featureType: 'all',
           stylers: [
-            { saturation: -60 }
+            { saturation: 0 }
           ]
         },{
           featureType: 'road.highway',
           elementType: 'geometry',
           stylers: [
             { hue: '#F6E2A3' },
-            { saturation: -60 },
+            { saturation: -90 },
             { lightness: -60 },
             { visibility: 'simplified' }
           ]
@@ -29,8 +29,8 @@ var mapStyle = [
           elementType: 'geometry',
           stylers: [
             { hue: '#F6E2A3' },
-            { saturation: 10 },
-            { lightness: -50 },
+            { saturation: 20 },
+            { lightness: -60 },
             { visibility: 'simplified' }
           ]
         },{
@@ -45,5 +45,10 @@ var mapStyle = [
           stylers: [
             { visibility: 'off' }
           ]
-        }
+        }, {
+            featureType: "transit.station.bus",
+            stylers: [
+              { visibility: "off" }
+            ]
+          }
       ]

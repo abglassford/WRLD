@@ -1,7 +1,7 @@
 $(document).on('ready', function() {
   console.log('main ready!');
 })
-//this all looks great. good work -JH
+
 function initMap() {
   var myPos = {lat: 39.7336014, lng: -104.9923434}
   map = new google.maps.Map(document.getElementById('map'), {
@@ -10,14 +10,24 @@ function initMap() {
     styles: mapStyle
   });
   infoWindow = new google.maps.InfoWindow({map: map});
+  var myMarker = {
+      url: '../img/blackMarker.png',
+      scaledSize: new google.maps.Size(27, 42),
+      origin: new google.maps.Point(0,0),
+      anchor: new google.maps.Point(0, 55)
+  };
+  myMarker = new google.maps.Marker({
+    map: map,
+    icon: myMarker
+  });
   if (navigator.geolocation) {
-    getGeoLocation(infoWindow, map)();
-    setInterval(getGeoLocation(infoWindow, map), 1000);
+    getGeoLocation(myMarker, map)();
+    setInterval(getGeoLocation(myMarker, map), 2000);
   } else {
-    handleLocationError(false, infoWindow, map.getCenter());
+    handleLocationError(false, myMarker, map.getCenter());
   }
 }
-function getGeoLocation (infoWindow, map) {
+function getGeoLocation (myMarker, map) {
   return function () {
     navigator.geolocation.getCurrentPosition(function(position) {
       var pos = {
@@ -30,11 +40,10 @@ function getGeoLocation (infoWindow, map) {
       }
       getNearbyNodes(tempPos, addPlaces);
       achivementFn(achievements)
-      infoWindow.setPosition(tempPos);
-      infoWindow.setContent('Your Location');
+      myMarker.setPosition(tempPos);
       map.setCenter(tempPos);
     }, function() {
-      handleLocationError(true, infoWindow, map.getCenter());
+      handleLocationError(true, myMarker, map.getCenter());
     });
     latSimulation += .000001
     lngSimulation += .0001
@@ -44,7 +53,8 @@ function getNearbyNodes (position, callback) {
   var service = new google.maps.places.PlacesService(map);
   service.nearbySearch({
     location: position,
-    radius: 100
+    radius: 100,
+    types: typeList
   }, callback(position));
 }
 function makePlaceObjArr (place) {
