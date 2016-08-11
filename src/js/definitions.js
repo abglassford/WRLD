@@ -9,15 +9,16 @@ var typeList = ['amusement_park', 'aquarium', 'art_gallery', 'library', 'bakery'
 
 
 function createMarker(place) {
-  var customMarker = {
+  let customMarker = {
     url: `../iconpack/icons/${place.types[0]}.svg`,
-    scaledSize: new google.maps.Size(30, 30),
+    scaledSize: new google.maps.Size(30, 30)
   }
   var marker = new google.maps.Marker({
     map: map,
     position: place.geometry.location,
     icon: customMarker
   });
+
   google.maps.event.addListener(marker, 'click', function() {
     infoWindow.setContent(place.name);
     infoWindow.open(map, this);
