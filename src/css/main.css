@@ -2,9 +2,11 @@ html, body {
    height: 100%;
    margin: 0;
    padding: 0;
-   background-color: #1d1f25;
    color: white;
    font-family: 'Open Sans', sans-serif;
+ }
+ body {
+      background-color: #1d1f25;
  }
 #map {
   height: 100%;
@@ -28,7 +30,6 @@ li {
   padding-top: 5px;
   padding-bottom: 5px;
   margin-bottom: 5px;
-  background-color: #1d1f25
 }
 .undiscovered {
   padding-left: 0
@@ -43,8 +44,13 @@ li {
   padding: 20px
 }
 .map-container {
-  border-radius: 15px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
   background-image: url('../img/papyrus.jpg');
+}
+.map-background {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 .title {
   font-family: 'Calligraffitti', cursive;
@@ -56,11 +62,19 @@ li {
 .icon {
   height: 30px;
   vertical-align: middle;
-  padding: 0px 10px 0px 10px
+  padding: 0px 10px 0px 10px;
 }
 h4 {
+  font-family: 'Calligraffitti', cursive;
   font-size: 30px;
 }
 ul {
   font-size: 20px;
+}
+.lists {
+    background-color: rgba(66, 73, 78, 0.86);
+    padding-bottom: 40px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    margin-bottom: 40px;
 }
