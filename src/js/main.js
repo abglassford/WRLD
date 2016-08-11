@@ -3,13 +3,13 @@ $(document).on('ready', function() {
 })
 
 function initMap() {
-  var myPos = {lat: 39.7336014, lng: -104.9923434}
+  let myPos = {lat: 39.8334884, lng: -105.0000078}
   map = new google.maps.Map(document.getElementById('map'), {
     center: myPos,
-    zoom: 18,
+    zoom: 17,
     styles: mapStyle
   });
-  infoWindow = new google.maps.InfoWindow();
+  infoWindow = new google.maps.InfoWindow({map: map});
   let customMarker = {
     url: './iconpack/icons/postal-code.svg',
     scaledSize: new google.maps.Size(40, 40)
@@ -20,11 +20,12 @@ function initMap() {
   });
   if (navigator.geolocation) {
     getGeoLocation(myMarker, map)();
-    setInterval(getGeoLocation(myMarker, map), 2000);
+    setInterval(getGeoLocation(myMarker, map), 1000);
   } else {
     handleLocationError(false, myMarker, map.getCenter());
   }
 }
+
 function getGeoLocation (myMarker, map) {
   return function () {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -47,6 +48,7 @@ function getGeoLocation (myMarker, map) {
     lngSimulation += .0001
   }
 }
+
 function getNearbyNodes (position, callback) {
   var service = new google.maps.places.PlacesService(map);
   service.nearbySearch({
@@ -73,13 +75,14 @@ function makePlaceObjArr (place) {
 }
 function discover (position, place) {
   for (var i = 0; i < place.length; i++) {
-    if((averageDist(position, place[i]) < 0.00006) && (!discoveredPlaces.includes(place[i].name))) {
+    if((averageDist(position, place[i]) < 0.00009) && (!discoveredPlaces.includes(place[i].name))) {
       discModal(place[i])
       discoveredPlaces.push(place[i].name)
       appendDiscovered(place[i])
     }
   }
 }
+
 function addPlaces (position) {
   return function (results, status) {
     $('.undiscovered').html('')
@@ -97,3 +100,6 @@ function addPlaces (position) {
     }
   }
 }
+// function removeMarker (position) {
+//
+// }

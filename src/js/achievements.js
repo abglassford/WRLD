@@ -15,13 +15,11 @@ function achModal(achievement) {
     $('.modal').modal('hide');
   }, 3000)
 }
-
-
 var achievements = [
   {
-    requirement: function () {return discoveredPlaces.length >= 20},
+    requirement: function () {return discoveredPlaces.length >= 5},
     name: 'Baby Steps',
-    description: 'discover 20 places',
+    description: 'discover 5 places',
     note: 'How do you eat an elephant? Why would you WANT to eat an elephant...?',
     points: 10
   }

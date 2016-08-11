@@ -2,9 +2,15 @@ html, body {
    height: 100%;
    margin: 0;
    padding: 0;
-   background-color: #1d1f25;
    color: white;
    font-family: 'Open Sans', sans-serif;
+   background-image: url('../img/valley.jpg');
+   background-repeat: no-repeat;
+    background-attachment: fixed;
+ }
+ .heading {
+   color: rgba(29, 31, 37, 1);
+   padding: 0
  }
 #map {
   height: 100%;
@@ -28,7 +34,6 @@ li {
   padding-top: 5px;
   padding-bottom: 5px;
   margin-bottom: 5px;
-  background-color: #1d1f25
 }
 .undiscovered {
   padding-left: 0
@@ -38,29 +43,50 @@ li {
   visibility: hidden;
 }
 .modal-content {
+  font-family: 'Open Sans', sans-serif;
   font-size: 30px;
   background-color: rgba(167, 215, 250, 1);
   padding: 20px
 }
 .map-container {
-  border-radius: 15px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
   background-image: url('../img/papyrus.jpg');
 }
+.map-background {
+  padding-left: 0px;
+  padding-right: 0px;
+}
 .title {
+  margin: 120px 0px 120px 0px;
   font-family: 'Calligraffitti', cursive;
+  color: white;
+  font-size: 400px;
+  padding-top: 50px;
+  background-color: rgba(29, 31, 37, 0.76)
 }
 .modal-content {
-  background-color: #1d1f25;
+  background-color: rgba(29, 31, 37, 0.86);
   border: solid 1px white;
 }
 .icon {
   height: 30px;
   vertical-align: middle;
-  padding: 0px 10px 0px 10px
+  padding: 0px 10px 0px 10px;
 }
 h4 {
+  font-family: 'Calligraffitti', cursive;
   font-size: 30px;
 }
 ul {
   font-size: 20px;
+}
+.lists {
+    background-color: rgba(29, 31, 37, 0.86);
+    border-top: solid 5px white;
+    padding-bottom: 40px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    margin-bottom: 40px;
+
 }
