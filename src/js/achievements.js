@@ -1,9 +1,10 @@
 function achivementFn (ach) {
   ach.forEach(function(value){
     if(value.requirement() === true){
-      if(!achLibrary.includes(achievements[0])){
-          achModal(achievements[0].name)
-          achLibrary.push(achievements[0])
+      if(!achLibrary.includes(value)){
+          achModal(value.name)
+          achLibrary.push(value)
+          console.log(achLibrary);
       }
     }
   })
