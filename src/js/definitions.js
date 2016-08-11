@@ -19,7 +19,6 @@ function createMarker(place) {
     position: place.geometry.location,
     icon: customMarker
   });
-  console.log(marker.position);
   google.maps.event.addListener(marker, 'click', function() {
     infoWindow.setContent(place.name);
     infoWindow.open(map, this);
