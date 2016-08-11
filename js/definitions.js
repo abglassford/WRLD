@@ -7,7 +7,7 @@ var typesLibrary = []
 var latSimulation = 39.7333886
 var lngSimulation = -104.99255690000001
 
-var typeList = ['amusement_park', 'aquarium', 'art_gallery', 'library', 'bakery', 'bar', 'lodging', 'book_store', 'bowling_alley', 'cafe', 'movie_theater', 'museum', 'night_club', 'casino', 'cemetery', 'church', 'city_hall', 'restaurant', 'embassy', 'shopping_mall', 'stadium', 'university', 'zoo', 'park']
+var typeList = ['amusement_park', 'aquarium', 'art_gallery', 'library', 'bakery', 'bar', 'lodging', 'book_store', 'bowling_alley', 'cafe', 'movie_theater', 'museum', 'night_club', 'casino', 'cemetery', 'city_hall', 'restaurant', 'embassy', 'shopping_mall', 'stadium', 'university', 'zoo', 'park']
 
 function createMarker(place) {
   let customMarker = {
@@ -48,5 +48,5 @@ function discModal (place) {
 }
 
 function appendDiscovered (place) {
-  $('.discovered').append(`<li class='discList col-md-12 col-xs-12'>${place.name}<img class='icon' src=./iconpack/icons/${place.types}.svg></li>`)
+  $('.discovered').append(`<li class='discList col-md-12 col-xs-12'>${place.name}<img class='icon' src=./iconpack/icons/${place.types[0]}.svg></li>`)
 }

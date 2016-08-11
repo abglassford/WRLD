@@ -68,7 +68,7 @@ function makePlaceObjArr (place) {
       name: place[i].name,
       lat: place[i].geometry.location.lat(),
       lng: place[i].geometry.location.lng(),
-      types: place[i].types[0]
+      types: place[i].types
     })
   }
   return tempArr;
@@ -77,6 +77,7 @@ function discover (position, place) {
   for (var i = 0; i < place.length; i++) {
     if((averageDist(position, place[i]) < 0.00009) && (!discoveredPlaces.includes(place[i].name))) {
       discModal(place[i])
+      addTypes(place[i].types)
       discoveredPlaces.push(place[i].name)
       appendDiscovered(place[i])
     }
@@ -94,11 +95,20 @@ function addPlaces (position) {
       discover(position, allPlaces);
       for (let i= 0; i < allPlaces.length; i++){
         if (!discoveredPlaces.includes(allPlaces[i].name)) {
-          $('.undiscovered').append(`<li class='undiscList col-md-12 col-xs-12'><img class='icon'  src='./iconpack/icons/${allPlaces[i].types}.svg'>${allPlaces[i].name}</li>`)
+          $('.undiscovered').append(`<li class='undiscList col-md-12 col-xs-12'><img class='icon'  src='./iconpack/icons/${allPlaces[i].types[0]}.svg'>${allPlaces[i].name}</li>`)
         }
       }
     }
   }
+}
+function addTypes (placeType) {
+  console.log(placeType);
+  placeType.forEach(function (data) {
+    if(!typesLibrary.includes(data)){
+      typesLibrary.push(data)
+    }
+  })
+  console.log(typesLibrary);
 }
 // function removeMarker (position) {
 //
