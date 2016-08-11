@@ -9,16 +9,14 @@ function initMap() {
     zoom: 18,
     styles: mapStyle
   });
-  infoWindow = new google.maps.InfoWindow({map: map});
-  var myMarker = {
-      url: '../img/blackMarker.png',
-      scaledSize: new google.maps.Size(27, 42),
-      origin: new google.maps.Point(0,0),
-      anchor: new google.maps.Point(0, 55)
-  };
+  infoWindow = new google.maps.InfoWindow();
+  let customMarker = {
+    url: '../iconpack/icons/postal-code.svg',
+    scaledSize: new google.maps.Size(40, 40)
+  }
   myMarker = new google.maps.Marker({
     map: map,
-    icon: myMarker
+    icon: customMarker
   });
   if (navigator.geolocation) {
     getGeoLocation(myMarker, map)();
@@ -45,7 +43,7 @@ function getGeoLocation (myMarker, map) {
     }, function() {
       handleLocationError(true, myMarker, map.getCenter());
     });
-    latSimulation += .000001
+    latSimulation += .0001
     lngSimulation += .0001
   }
 }
