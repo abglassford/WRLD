@@ -5,12 +5,14 @@ var achLibrary = []
 var typesLibrary = []
 var latSimulation = 39.7336014
 var lngSimulation = -104.9923434
+var typeList = ['amusement_park', 'aquarium', 'art_gallery', 'library', 'bakery', 'bar', 'lodging', 'book_store', 'bowling_alley', 'cafe', 'movie_theater', 'museum', 'night_club', 'casino', 'cemetery', 'church', 'city_hall', 'restaurant', 'embassy', 'shopping_mall', 'stadium', 'university', 'zoo']
 
 
 function createMarker(place) {
   var marker = new google.maps.Marker({
     map: map,
-    position: place.geometry.location
+    position: place.geometry.location,
+    icon: '../img/PointOfInterest.png'
   });
   google.maps.event.addListener(marker, 'click', function() {
     infoWindow.setContent(place.name);
