@@ -6,6 +6,9 @@ html, body {
    font-family: 'Open Sans', sans-serif;
    background-image: url('../img/valley.jpg')
  }
+ .heading {
+   color: rgba(29, 31, 37, 1);
+ }
 #map {
   height: 100%;
   width: auto;
