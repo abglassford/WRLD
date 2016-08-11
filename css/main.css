@@ -19,12 +19,21 @@ html, body {
 .top-buffer {
   margin-top: 20px;
 }
+
 li {
+  border-radius: 5px;
   list-style: none;
+  border: solid 1px white;
+  width: 300px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+  background-color: #1d1f25
 }
-ul{
-  padding-left: 0;
+.undiscovered {
+  padding-left: 0
 }
+
 .alert-text {
   visibility: hidden;
 }
@@ -43,4 +52,15 @@ ul{
 .modal-content {
   background-color: #1d1f25;
   border: solid 1px white;
+}
+.icon {
+  height: 30px;
+  vertical-align: middle;
+  padding: 0px 10px 0px 10px
+}
+h4 {
+  font-size: 30px;
+}
+ul {
+  font-size: 20px;
 }
