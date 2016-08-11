@@ -40,13 +40,13 @@ function averageDist (position, place) {
 }
 
 function discModal (place) {
-  $('.modal-content').text(`You've discovered ${place.name}`)
-  $('.modal').modal('show')
+  $('.popUp').text(`You've discovered ${place.name}`)
+  $('.mainPop').modal('show')
   setTimeout(function () {
-    $('.modal').modal('hide');
+    $('.mainPop').modal('hide');
   }, 3000)
 }
 
 function appendDiscovered (place) {
-  $('.discovered').append(`<li class='discList col-md-12 col-xs-12'>${place.name}<img class='icon' src=./iconpack/icons/${place.types[0]}.svg></li>`)
+  $('.discovered').append(`<li class='discList col-md-12 col-xs-12'><img class='icon' src=./iconpack/icons/${place.types[0]}.svg>${place.name}</li>`)
 }
