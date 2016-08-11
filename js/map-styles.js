@@ -4,6 +4,11 @@ var mapStyle = [
             { hue: '#F6E2A3' },
           ]
         },{
+          featureType: 'transit.station.bus',
+          stylers: [
+            { visibility: 'off' }
+          ]
+        },{
           featureType: 'landscape',
           stylers: [
             { color: '#F6E2A3' },
