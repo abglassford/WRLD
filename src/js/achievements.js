@@ -1,18 +1,22 @@
 function achivementFn (ach) {
   ach.forEach(function(value){
     if(value.requirement() === true){
-      if(!achLibrary.includes(achievements[0])){
-          achModal(achievements[0].name)
-          achLibrary.push(achievements[0])
+      if(!achLibrary.includes(value)){
+          achModal(value.name)
+          achLibrary.push(value)
+          appendAch(value)
       }
     }
   })
 }
+function appendAch (achievement) {
+  $('.achievements').append(`<li class='achList col-md-12 col-xs-12'>${achievement.name}</li>`)
+}
 function achModal(achievement) {
-  $('.modal-content').text(`Achievment Unlocked: ${achievement}!`)
-  $('.modal').modal('show')
+  $('.popUp').text(`Achievment Unlocked: ${achievement}!`)
+  $('.mainPop').modal('show')
   setTimeout(function () {
-    $('.modal').modal('hide');
+    $('.mainPop').modal('hide');
   }, 3000)
 }
 var achievements = [
