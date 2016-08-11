@@ -1,15 +1,20 @@
 html, body {
    height: 100%;
    margin: 0;
-  padding: 0;
+   padding: 0;
+   background-color: #1d1f25;
+   color: white;
+   font-family: 'Open Sans', sans-serif;
  }
 #map {
   height: 100%;
   width: auto;
+  color: black;
 }
 .map-container {
   height: 500px;
   width: 100%;
+  padding: 40px 40px 40px 40px;
 }
 .top-buffer {
   margin-top: 20px;
@@ -28,9 +33,14 @@ ul{
   background-color: rgba(167, 215, 250, 1);
   padding: 20px
 }
-body {
+.map-container {
+  border-radius: 15px;
   background-image: url('../img/papyrus.jpg');
 }
 .title {
   font-family: 'Calligraffitti', cursive;
+}
+.modal-content {
+  background-color: #1d1f25;
+  border: solid 1px white;
 }
