@@ -10,7 +10,7 @@ var typeList = ['amusement_park', 'aquarium', 'art_gallery', 'library', 'bakery'
 
 function createMarker(place) {
   let customMarker = {
-    url: `../iconpack/icons/${place.types[0]}.svg`,
+    url: `./iconpack/icons/${place.types[0]}.svg`,
     scaledSize: new google.maps.Size(30, 30)
   }
   var marker = new google.maps.Marker({

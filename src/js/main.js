@@ -11,7 +11,7 @@ function initMap() {
   });
   infoWindow = new google.maps.InfoWindow();
   let customMarker = {
-    url: '../iconpack/icons/postal-code.svg',
+    url: './iconpack/icons/postal-code.svg',
     scaledSize: new google.maps.Size(40, 40)
   }
   myMarker = new google.maps.Marker({
