@@ -9,7 +9,7 @@ function initMap() {
     zoom: 18,
     styles: mapStyle
   });
-  infoWindow = new google.maps.InfoWindow();
+  infoWindow = new google.maps.InfoWindow({map: map});
   let customMarker = {
     url: './iconpack/icons/postal-code.svg',
     scaledSize: new google.maps.Size(40, 40)
