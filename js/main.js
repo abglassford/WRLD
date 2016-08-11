@@ -3,7 +3,7 @@ $(document).on('ready', function() {
 })
 
 function initMap() {
-  let myPos = {lat: 39.7334884, lng: -104.9939278}
+  let myPos = {lat: 39.8334884, lng: -105.0000078}
   map = new google.maps.Map(document.getElementById('map'), {
     center: myPos,
     zoom: 17,
@@ -75,7 +75,7 @@ function makePlaceObjArr (place) {
 }
 function discover (position, place) {
   for (var i = 0; i < place.length; i++) {
-    if((averageDist(position, place[i]) < 0.00006) && (!discoveredPlaces.includes(place[i].name))) {
+    if((averageDist(position, place[i]) < 0.00009) && (!discoveredPlaces.includes(place[i].name))) {
       discModal(place[i])
       discoveredPlaces.push(place[i].name)
       appendDiscovered(place[i])

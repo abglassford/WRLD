@@ -4,8 +4,8 @@ var discoveredPlaces = []
 var allPlaces = []
 var achLibrary = []
 var typesLibrary = []
-var latSimulation = 39.7334884
-var lngSimulation = -104.9939278
+var latSimulation = 39.7333886
+var lngSimulation = -104.99255690000001
 
 var typeList = ['amusement_park', 'aquarium', 'art_gallery', 'library', 'bakery', 'bar', 'lodging', 'book_store', 'bowling_alley', 'cafe', 'movie_theater', 'museum', 'night_club', 'casino', 'cemetery', 'church', 'city_hall', 'restaurant', 'embassy', 'shopping_mall', 'stadium', 'university', 'zoo', 'park']
 
