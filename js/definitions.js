@@ -1,18 +1,13 @@
 var map//DON'T DELETE
 var infoWindow; //DON'T DELETE
+var points = 0
 var discoveredPlaces = []
 var allPlaces = []
 var achLibrary = []
 var typesLibrary = {}
-var latSimulation = 39.7335886
+var latSimulation = 39.7336886
 var lngSimulation = -104.99295690000001
-Object.size = function(obj) {
-    var size = 0, key;
-    for (key in obj) {
-        if (obj.hasOwnProperty(key)) size++;
-    }
-    return size;
-};
+
 
 var typeList = ['amusement_park', 'aquarium', 'art_gallery', 'library', 'bakery', 'bar', 'lodging', 'book_store', 'bowling_alley', 'cafe', 'movie_theater', 'museum', 'night_club', 'casino', 'cemetery', 'city_hall', 'restaurant', 'embassy', 'shopping_mall', 'stadium', 'university', 'zoo', 'park']
 
@@ -57,3 +52,10 @@ function discModal (place) {
 function appendDiscovered (place) {
   $('.discovered').append(`<li class='discList col-md-8 col-md-offset-2 col-xs-12'><img class='icon' src=./iconpack/icons/${place.types[0]}.svg>${place.name}</li>`)
 }
+Object.size = function(obj) {
+    var size = 0, key;
+    for (key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+    }
+    return size;
+};
