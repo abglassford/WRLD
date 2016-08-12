@@ -10,7 +10,7 @@ function achivementFn (ach) {
   })
 }
 function appendAch (achievement) {
-  $('.achievements').append(`<li class='achList col-md-8 col-md-offset-2 col-xs-12'><p class="achName">${achievement.name}</p><ul><li class="achPoints">Points: ${achievement.points}</li><li class="achDesc">Description: ${achievement.description}</li></ul></li>`)
+  $('.achievements').append(`<li class='achList col-md-8 col-md-offset-2 col-xs-12'><p class="achName">${achievement.name}</p><ul><li class="achPoints">Points: ${achievement.points}</li><li class="achDesc">${achievement.description}</li></ul></li>`)
   points += achievement.points
   $('.points').text(`Total Points: ${points}`)
 }
