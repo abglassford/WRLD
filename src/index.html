@@ -31,13 +31,15 @@
       <div class="lists row col-md-10 col-md-offset-1">
         <div class="top-buffer text-center col-md-4 col-xs-4">
           <h4 class="text-center">Achievements</h4>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".achModal">View</button>
+          <button type="button" class="col-md-4 col-md-offset-4 btn btn-primary" data-toggle="modal" data-target=".achModal">View</button>
           <div class="modal fade achModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
             <div class="modal-dialog modal-md" role="document">
               <div class="modal-content">
                 <div class="modal-body">
                   <h4 class="text-center">Achievements:</h4>
+                  <p class="points"></p>
                   <ul class="text-left achievements"></ul>
+
                 </div>
               </div>
             </div>
@@ -49,7 +51,7 @@
         </div>
         <div class="allDiscovered top-buffer text-center col-md-4 col-xs-4">
           <h4 class="text-center">Discovered</h4>
-          <button type="button" class="discView btn btn-primary" data-toggle="modal" data-target=".discModal">View</button>
+          <button type="button" class="col-md-4 col-md-offset-4 discView btn btn-primary" data-toggle="modal" data-target=".discModal">View</button>
           <div class="modal fade discModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
             <div class="modal-dialog modal-md" role="document">
               <div class="modal-content">
