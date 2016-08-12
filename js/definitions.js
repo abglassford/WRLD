@@ -4,7 +4,7 @@ var discoveredPlaces = []
 var allPlaces = []
 var achLibrary = []
 var typesLibrary = {
-  xplaceholderx: null
+  placeholder: null
 }
 var latSimulation = 39.7333886
 var lngSimulation = -104.99255690000001

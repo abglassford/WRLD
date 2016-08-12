@@ -102,31 +102,13 @@ function addPlaces (position) {
   }
 }
 function addTypes (placeType) {
-  console.log(placeType);
   for(var key in typesLibrary){
-    console.log(key);
     placeType.forEach(function(value){
-      console.log(typeof(value));
       if(key !== value){
-      typesLibrary[value] = 1
-      console.log(typesLibrary[value]);
-    } else if (key === value){
-      typesLibrary[value]++
-    }
-    console.log(typesLibrary);
-  })
+        typesLibrary[value] = 1
+      } else if (key === value){
+        typesLibrary[value]++
+      }
+    })
   }
-
-
-
-  // console.log(placeType);
-  // placeType.forEach(function (data) {
-  //   if(!typesLibrary.includes(data)){
-  //     typesLibrary.push(data)
-  //   }
-  // })
-  // console.log(typesLibrary);
 }
-// function removeMarker (position) {
-//
-// }
