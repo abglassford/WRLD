@@ -44,7 +44,7 @@ function getGeoLocation (myMarker, map) {
     }, function() {
       handleLocationError(true, myMarker, map.getCenter());
     });
-    latSimulation += .00001
+    latSimulation += .000009
     lngSimulation += .0001
   }
 }
