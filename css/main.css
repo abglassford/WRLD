@@ -83,12 +83,12 @@ li {
   padding-right: 0px;
 }
 .title {
-  margin: 120px 0px 120px 0px;
+  margin-top: 20px;
   font-family: 'Calligraffitti', cursive;
   color: white;
-  font-size: 400px;
-  padding-top: 50px;
-  background-color: rgba(29, 31, 37, 0.76)
+  font-size: 40vw;
+  padding-top: 90px;
+  background-color: rgba(29, 31, 37, 0.76);
 }
 .icon {
   height: 30px;
