@@ -20,7 +20,7 @@ html, body {
 .map-container {
   height: 500px;
   width: 100%;
-  padding: 40px 40px 40px 40px;
+  padding: 20px 20px 20px 20px;
 }
 .top-buffer {
   margin-top: 20px;
