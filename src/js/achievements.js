@@ -2,7 +2,7 @@ function achivementFn (ach) {
   ach.forEach(function(value){
     if(value.requirement() === true){
       if(!achLibrary.includes(value)){
-          achModal(value.name)
+          achModal(value)
           achLibrary.push(value)
           appendAch(value)
       }
@@ -10,12 +10,12 @@ function achivementFn (ach) {
   })
 }
 function appendAch (achievement) {
-  $('.achievements').append(`<li class='achList col-md-8 col-md-offset-2 col-xs-12'>${achievement.name}: ${achievement.points} point(s)</li>`)
+  $('.achievements').append(`<li class='achList col-md-8 col-md-offset-2 col-xs-12'><p class="achName">${achievement.name}</p><ul><li class="achPoints">Points: ${achievement.points}</li><li class="achDesc">Description: ${achievement.description}</li></ul></li>`)
   points += achievement.points
   $('.points').text(`Total Points: ${points}`)
 }
 function achModal(achievement) {
-  $('.popUp').text(`Achievment Unlocked: ${achievement}!`)
+  $('.popUp').text(`Achievment Unlocked: ${achievement.name}!`)
   $('.mainPop').modal('show')
   setTimeout(function () {
     $('.mainPop').modal('hide');
@@ -35,9 +35,9 @@ var achievements = [
     note: 'Welcome to the wrld',
     points: 5
   },  {
-    requirement: function () {return Object.size(typesLibrary) >= 5},
+    requirement: function () {return Object.size(typesLibrary) >= 10},
     name: 'Dip Your Toes',
-    description: 'Discover 5 different types of places',
+    description: 'Discover 10 different types of places',
     note: `...but I've only visited 3 places...`,
     points: 5
   }, {

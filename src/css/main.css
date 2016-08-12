@@ -34,7 +34,22 @@ li {
   width: 300px;
   padding-top: 5px;
   padding-bottom: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
+}
+.achDesc {
+  border: none;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+.achPoints {
+  border: none;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+.achName {
+  margin-bottom: 3px;
 }
 
 .discovered{
@@ -86,6 +101,7 @@ h4 {
 }
 ul {
   font-size: 20px;
+  padding-left: 0;
 }
 .lists {
     background-color: rgba(29, 31, 37, 0.86);
