@@ -32,23 +32,23 @@ var achievements = [
     description: 'Discover 1 place',
     note: 'Welcome to the wrld',
     points: 5
-  }, {
-    requirement: function () {return typesLibrary.length > 5},
+  },  {
+    requirement: function () {return Object.size(typesLibrary) >= 5},
     name: 'Dip Your Toes',
     description: 'Discover 5 Different Types of Places',
     note: `...but I've only visited 3 places...`,
     points: 5
+  }, {
+    requirement: function () {return typesLibrary.cafe >= 5},
+    name: `Barista's Bane`,
+    description: `discover 5 cafes`,
+    note: `The best part of waking up...`,
+    points: 5
+  }, {
+    requirement: function () {return typesLibrary.bars >= 5},
+    name: `Booze Hound`,
+    description: `discover 5 bars`,
+    note: `Sho Iwasfink'n... waiiit.. wawuzai shayhin?`,
+    points: 5
   }
-
-  //  {
-  //   name: `Barista's Bane`,
-  //   description: `discover 5 cafes`,
-  //   note: `The best part of waking up...`,
-  //   points: 5
-  // }, {
-  //   name: `Booze Hound`,
-  //   description: `discover 5 bars`,
-  //   note: `Sho Iwasfink'n... waiiit.. wawuzai shayhin?`,
-  //   points: 5
-  // }
 ]

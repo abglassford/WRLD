@@ -3,11 +3,16 @@ var infoWindow; //DON'T DELETE
 var discoveredPlaces = []
 var allPlaces = []
 var achLibrary = []
-var typesLibrary = {
-  placeholder: null
-}
-var latSimulation = 39.7333886
-var lngSimulation = -104.99255690000001
+var typesLibrary = {}
+var latSimulation = 39.7335886
+var lngSimulation = -104.99295690000001
+Object.size = function(obj) {
+    var size = 0, key;
+    for (key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+    }
+    return size;
+};
 
 var typeList = ['amusement_park', 'aquarium', 'art_gallery', 'library', 'bakery', 'bar', 'lodging', 'book_store', 'bowling_alley', 'cafe', 'movie_theater', 'museum', 'night_club', 'casino', 'cemetery', 'city_hall', 'restaurant', 'embassy', 'shopping_mall', 'stadium', 'university', 'zoo', 'park']
 

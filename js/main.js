@@ -44,7 +44,7 @@ function getGeoLocation (myMarker, map) {
     }, function() {
       handleLocationError(true, myMarker, map.getCenter());
     });
-    latSimulation += .0001
+    latSimulation += .00001
     lngSimulation += .0001
   }
 }
@@ -102,13 +102,11 @@ function addPlaces (position) {
   }
 }
 function addTypes (placeType) {
-  for(var key in typesLibrary){
-    placeType.forEach(function(value){
-      if(key !== value){
-        typesLibrary[value] = 1
-      } else if (key === value){
-        typesLibrary[value]++
-      }
-    })
-  }
+  placeType.forEach(function(value){
+    if(!typesLibrary[value]){
+      typesLibrary[value] = 1
+    } else if (typesLibrary[value]){
+      typesLibrary[value]++
+    }
+  })
 }
