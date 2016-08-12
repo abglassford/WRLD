@@ -25,7 +25,6 @@ html, body {
 .top-buffer {
   margin-top: 20px;
 }
-
 li {
   padding-left: 0;
   border-radius: 5px;
@@ -69,9 +68,9 @@ li {
   border: solid 1px white;
 }
 .modal-body {
-    position: relative;
-    overflow-y: auto;
-    max-height: 400px;
+  position: relative;
+  overflow-y: auto;
+  max-height: 400px;
 }
 .map-container {
   border-top-left-radius: 15px;
@@ -104,11 +103,10 @@ ul {
   padding-left: 0;
 }
 .lists {
-    background-color: rgba(29, 31, 37, 0.86);
-    border-top: solid 5px white;
-    padding-bottom: 40px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    margin-bottom: 40px;
-
+  background-color: rgba(29, 31, 37, 0.86);
+  border-top: solid 5px white;
+  padding-bottom: 40px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  margin-bottom: 40px;
 }
