@@ -1,7 +1,6 @@
 $(document).on('ready', function() {
   console.log('main ready!');
 })
-
 function initMap() {
   let myPos = {lat: 39.8334884, lng: -105.0000078}
   map = new google.maps.Map(document.getElementById('map'), {
@@ -20,12 +19,11 @@ function initMap() {
   });
   if (navigator.geolocation) {
     getGeoLocation(myMarker, map)();
-    setInterval(getGeoLocation(myMarker, map), 1000);
+    setInterval(getGeoLocation(myMarker, map), 2000);
   } else {
     handleLocationError(false, myMarker, map.getCenter());
   }
 }
-
 function getGeoLocation (myMarker, map) {
   return function () {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -33,6 +31,7 @@ function getGeoLocation (myMarker, map) {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
+      //used for presentation
       var tempPos = {
         lat: latSimulation,
         lng: lngSimulation
@@ -48,7 +47,6 @@ function getGeoLocation (myMarker, map) {
     lngSimulation += .0001
   }
 }
-
 function getNearbyNodes (position, callback) {
   var service = new google.maps.places.PlacesService(map);
   service.nearbySearch({
@@ -83,7 +81,6 @@ function discover (position, place) {
     }
   }
 }
-
 function addPlaces (position) {
   return function (results, status) {
     $('.undiscovered').html('')
