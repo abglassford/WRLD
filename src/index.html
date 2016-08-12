@@ -30,9 +30,9 @@
         </div>
       </div>
       <div class="lists row col-md-10 col-md-offset-1">
-        <div class="top-buffer text-center col-md-4 col-xs-4">
+        <div class="allAchievements top-buffer text-center col-md-6 col-xs-6">
           <h4 class="text-center">Achievements</h4>
-          <button type="button" class="col-md-4 col-md-offset-4 btn btn-primary" data-toggle="modal" data-target=".achModal">View</button>
+          <button type="button" class="col-md-4 col-md-offset-4 col-xs-6 col-xs-offset-3 btn btn-primary" data-toggle="modal" data-target=".achModal">View</button>
           <div class="modal fade achModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
             <div class="modal-dialog modal-md" role="document">
               <div class="modal-content">
@@ -45,13 +45,9 @@
             </div>
           </div>
         </div>
-        <div class="allUndiscovered top-buffer text-left col-md-4 col-xs-4">
-          <h4 class="text-center">Undiscovered</h4>
-          <ul class="undiscovered"></ul>
-        </div>
-        <div class="allDiscovered top-buffer text-center col-md-4 col-xs-4">
+        <div class="allDiscovered top-buffer text-center col-md-6 col-xs-6">
           <h4 class="text-center">Discovered</h4>
-          <button type="button" class="col-md-4 col-md-offset-4 discView btn btn-primary" data-toggle="modal" data-target=".discModal">View</button>
+          <button type="button" class="col-md-4 col-md-offset-4 col-xs-6 col-xs-offset-3 discView btn btn-primary" data-toggle="modal" data-target=".discModal">View</button>
           <div class="modal fade discModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
             <div class="modal-dialog modal-md" role="document">
               <div class="modal-content">
@@ -61,6 +57,12 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div class="row undiscoveredDiv">
+          <div class="allUndiscovered top-buffer text-left col-md-8 col-md-offset-2 col-xs-8 col-xs-offset-2">
+            <h4 class="text-center">Undiscovered</h4>
+            <ul class="undiscovered"></ul>
           </div>
         </div>
       </div>
