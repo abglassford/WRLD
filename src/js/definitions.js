@@ -3,7 +3,9 @@ var infoWindow; //DON'T DELETE
 var discoveredPlaces = []
 var allPlaces = []
 var achLibrary = []
-var typesLibrary = []
+var typesLibrary = {
+  xplaceholderx: null
+}
 var latSimulation = 39.7333886
 var lngSimulation = -104.99255690000001
 
@@ -48,5 +50,5 @@ function discModal (place) {
 }
 
 function appendDiscovered (place) {
-  $('.discovered').append(`<li class='discList col-md-12 col-xs-12'><img class='icon' src=./iconpack/icons/${place.types[0]}.svg>${place.name}</li>`)
+  $('.discovered').append(`<li class='discList col-md-8 col-md-offset-2 col-xs-12'><img class='icon' src=./iconpack/icons/${place.types[0]}.svg>${place.name}</li>`)
 }
