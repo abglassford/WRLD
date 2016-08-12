@@ -8,6 +8,9 @@ html, body {
    background-repeat: no-repeat;
     background-attachment: fixed;
  }
+ #fade{
+   display: none
+ }
  .heading {
    color: rgba(29, 31, 37, 1);
    padding: 0
@@ -21,6 +24,9 @@ html, body {
   height: 500px;
   width: 100%;
   padding: 20px 20px 20px 20px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-image: url('../img/papyrus.jpg');
 }
 .top-buffer {
   margin-top: 20px;
@@ -50,7 +56,15 @@ li {
 .achName {
   margin-bottom: 3px;
 }
-
+.allAchievements {
+  display: none;
+}
+.allDiscovered {
+  display: none;
+}
+.allUndiscovered{
+  display: none;
+}
 .discovered{
   padding-left: 0;
 }
@@ -59,6 +73,9 @@ li {
 }
 .alert-text {
   visibility: hidden;
+}
+.undiscoveredDiv {
+  display: none;
 }
 .modal-content {
   font-family: 'Open Sans', sans-serif;
@@ -72,14 +89,11 @@ li {
   overflow-y: auto;
   max-height: 400px;
 }
-.map-container {
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-  background-image: url('../img/papyrus.jpg');
-}
+
 .map-background {
   padding-left: 0px;
   padding-right: 0px;
+  display: none;
 }
 .title {
   margin-top: 20px;
@@ -88,6 +102,7 @@ li {
   font-size: 40vw;
   padding-top: 90px;
   background-color: rgba(29, 31, 37, 0.76);
+  display: none;
 }
 .icon {
   height: 30px;

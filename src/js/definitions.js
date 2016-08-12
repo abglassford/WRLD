@@ -59,3 +59,15 @@ Object.size = function(obj) {
     }
     return size;
 };
+
+function fadeInAll () {
+  $('#fade').fadeIn(800)
+  $('.title').fadeIn(400)
+  $('.map-background').fadeIn(400)
+  $('.undiscoveredDiv').fadeIn(400)
+  setTimeout(function () {
+    $('.allAchievements').fadeIn(600)
+    $('.allDiscovered').fadeIn(600)
+    $('.allUndiscovered').fadeIn(600)
+    }, 300)
+  }
