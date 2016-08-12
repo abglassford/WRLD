@@ -10,7 +10,7 @@ function achivementFn (ach) {
   })
 }
 function appendAch (achievement) {
-  $('.achievements').append(`<li class='achList col-md-12 col-xs-12'>${achievement.name}</li>`)
+  $('.achievements').append(`<li class='achList col-md-8 col-md-offset-2 col-xs-12'>${achievement.name}: ${achievement.points} point(s)</li>`)
 }
 function achModal(achievement) {
   $('.popUp').text(`Achievment Unlocked: ${achievement}!`)
@@ -23,9 +23,21 @@ var achievements = [
   {
     requirement: function () {return discoveredPlaces.length >= 5},
     name: 'Baby Steps',
-    description: 'discover 5 places',
+    description: 'Discover 5 places',
     note: 'How do you eat an elephant? Why would you WANT to eat an elephant...?',
     points: 10
+  },{
+    requirement: function() {return discoveredPlaces.length >= 1},
+    name: 'First Step',
+    description: 'Discover 1 place',
+    note: 'Welcome to the wrld',
+    points: 5
+  }, {
+    requirement: function () {return typesLibrary.length > 5},
+    name: 'Dip Your Toes',
+    description: 'Discover 5 Different Types of Places',
+    note: `...but I've only visited 3 places...`,
+    points: 5
   }
 
   //  {
