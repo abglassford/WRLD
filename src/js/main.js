@@ -1,5 +1,6 @@
 $(document).on('ready', function() {
   console.log('main ready!');
+  fadeInAll()
 })
 function initMap() {
   let myPos = {lat: 39.8334884, lng: -105.0000078}
