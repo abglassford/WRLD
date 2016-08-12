@@ -95,7 +95,7 @@ function addPlaces (position) {
       discover(position, allPlaces);
       for (let i= 0; i < allPlaces.length; i++){
         if (!discoveredPlaces.includes(allPlaces[i].name)) {
-          $('.undiscovered').append(`<li class='undiscList col-md-12 col-xs-12'><img class='icon'  src='./iconpack/icons/${allPlaces[i].types[0]}.svg'>${allPlaces[i].name}</li>`)
+          $('.undiscovered').append(`<li class='undiscList text-center col-md-8 col-md-offset-2 col-xs-12'><img class='icon'  src='./iconpack/icons/${allPlaces[i].types[0]}.svg'>${allPlaces[i].name}</li>`)
         }
       }
     }
